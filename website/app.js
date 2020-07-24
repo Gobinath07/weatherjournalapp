@@ -1,13 +1,13 @@
 /* Global Variables */
 
 
-let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+const d = new Date();
+const newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 // Create a new date instance dynamically with JS
 let data;
 
 
-let baseURL = 'http://api.openweathermap.org/data/2.5/weather?units=metric&q=';
+let baseURL = 'http://api.openweathermap.org/data/2.5/weather?units=metric&zip=';
 let apiKey ='&appid=98721fd58c1442399314ce10c43bb3a7';
 
 
@@ -28,7 +28,7 @@ function action(e){
     getWeathe(baseURL, zip, apiKey)
     .then(function(data){
         console.log(data);
-        postData('/newData',{date:d,temp:data.main.temp,city:data.name,feeling:feeling});
+        postData('/newData',{date:newDate,temp:data.main.temp,city:data.name,feeling:feeling});
         updateUI();
     })
 };
@@ -88,10 +88,10 @@ const updateUI =async () => {
         const allData = await req.json();
         console.log(allData)
         
-        document.getElementById('date').innerHTML =  `Date: ${allData[0].date}`;
-        document.getElementById('temp').innerHTML = `Temperature:${allData[0].temp}°c`;
-        document.getElementById('city').innerHTML=  `City:${allData[0].city}`;
-        document.getElementById('content').innerHTML = `you feel like :${allData[0].feeling}`;
+        document.getElementById('date').innerHTML =  `Date: ${allData.date}`;
+        document.getElementById('temp').innerHTML = `Temperature:${allData.temp}°c`;
+        document.getElementById('city').innerHTML=  `City:${allData.city}`;
+        document.getElementById('content').innerHTML = `you feel like :${allData.feeling}`;
       
 }
 
