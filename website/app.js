@@ -7,8 +7,8 @@ const newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 let data;
 
 
-let baseURL = 'http://api.openweathermap.org/data/2.5/weather?units=metric&zip=';
-let apiKey ='&appid=98721fd58c1442399314ce10c43bb3a7';
+const baseURL = 'http://api.openweathermap.org/data/2.5/weather?units=metric&zip=';
+const apiKey ='&appid=98721fd58c1442399314ce10c43bb3a7';
 
 
 
